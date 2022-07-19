@@ -155,34 +155,25 @@ class _TodoItemPageState extends State<TodoItemPage> {
             handleShowItemTextFieldEditorModal(context, item.text, item),
         style: ElevatedButton.styleFrom(primary: Colors.white),
         child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        item.text,
-                        style: TextStyle(
-                            fontSize: 24,
-                            color: item.isDone ? Colors.grey : Colors.black,
-                            decorationColor: Colors.black,
-                            decorationThickness: 3.4,
-                            decoration: item.isDone
-                                ? TextDecoration.lineThrough
-                                : TextDecoration.none),
-                      )
-                    ],
-                  )
-                ],
-              )
-            ],
-          ),
-        ));
+            padding: const EdgeInsets.only(top: 16, bottom: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Expanded(
+                    child: Text(
+                  item.text,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                      fontSize: 24,
+                      color: item.isDone ? Colors.grey : Colors.black,
+                      decorationColor: Colors.black,
+                      decorationThickness: 3.4,
+                      decoration: item.isDone
+                          ? TextDecoration.lineThrough
+                          : TextDecoration.none),
+                ))
+              ],
+            )));
   }
 
   Future<void> showItemTextFieldEditorModal(BuildContext context) {

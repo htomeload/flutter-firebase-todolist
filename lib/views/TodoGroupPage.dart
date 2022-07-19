@@ -122,33 +122,24 @@ class _TodoGroupPageState extends State<TodoGroupPage> {
       onLongPress: () => handleShowGroupNameTextFieldEditorModal(
           context, item.groupName, item),
       child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      item.groupName,
-                      style: TextStyle(
-                          fontSize: 24,
-                          decorationColor: Colors.blueAccent,
-                          decorationThickness: 3.8,
-                          decoration: item.isDone
-                              ? TextDecoration.lineThrough
-                              : TextDecoration.none),
-                    )
-                  ],
-                )
-              ],
-            )
-          ],
-        ),
-      ),
+          padding: const EdgeInsets.only(top: 16, bottom: 16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Expanded(
+                  child: Text(
+                item.groupName,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                    fontSize: 24,
+                    decorationColor: Colors.blueAccent,
+                    decorationThickness: 3.8,
+                    decoration: item.isDone
+                        ? TextDecoration.lineThrough
+                        : TextDecoration.none),
+              ))
+            ],
+          )),
     );
   }
 
