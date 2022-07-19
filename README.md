@@ -20,11 +20,13 @@ https://firebase.google.com/docs/flutter/setup
 
 After finished create Firebase project, head to Firestore Database then create Cloud Firestore for use in project, then you need to create two collections, one is for group of tasks, another is for tasks in a group.
 
-Later, then goto lib/constants/firebase_firestore_constants.dart and edit those two lines below according to what you created.
+Later, then goto lib, create folder name 'constants', inside its create file name 'firebase_firestore_constants.dart' and add those lines below then edit value ***TODO_GROUP_COLLECTION*** and ***TODO_ITEM_COLLECTION*** according to collections name that you created.
 
 ```bash
+class FirestoreConstants {
   static const TODO_GROUP_COLLECTION = 'YOUR TODO LIST GROUP COLLECTION NAME';
   static const TODO_ITEM_COLLECTION = 'YOUR TODO LIST ITEM COLLECTION NAME';
+}
 ```
 
 Last, run project with this command. You may have to launched emulator or connected device before run this command, otherwise it will launch in web or native build.
