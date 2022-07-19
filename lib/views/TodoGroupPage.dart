@@ -4,14 +4,19 @@ import 'package:get/get.dart';
 import 'package:todolist/views/TodoItemPage.dart';
 import 'package:todolist/models/todo_group.dart';
 
-class TodoGroupPage extends StatelessWidget {
+class TodoGroupPage extends StatefulWidget {
+  const TodoGroupPage({Key? key}) : super(key: key);
+
+  @override
+  State<TodoGroupPage> createState() => _TodoGroupPageState();
+}
+
+class _TodoGroupPageState extends State<TodoGroupPage> {
   final todoGroupController = Get.put(TodoGroupController());
   TextEditingController groupNameTextFieldInputController =
       TextEditingController();
   late TodoGroup editingTodoGroupItem;
   bool isEditingItem = false;
-
-  TodoGroupPage({Key? key}) : super(key: key);
 
   void handleNavigation(context, String? parentId) {
     Navigator.push(
@@ -53,8 +58,10 @@ class TodoGroupPage extends StatelessWidget {
     showGroupNameTextFieldEditorModal(context);
   }
 
+  @override
   void dispose() {
     groupNameTextFieldInputController.dispose();
+    super.dispose();
   }
 
   @override
